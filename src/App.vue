@@ -5,7 +5,7 @@
         <h1 class="h3">{{ title }}</h1>
       </div>
       <AddTodo v-on:addTodo="addTodoBtnClick"></AddTodo>
-      <Nav></Nav>
+      <!-- <Nav></Nav> -->
       <Todo :todos="todolist" v-on:deleteTodo="deleteTodoBtnClick"></Todo>
       <div class="footer d-flex justify-content-between">
         <p>{{ counter }} tasks</p>
@@ -35,7 +35,8 @@ export default {
       this.todolist.push({
         id: newId,
         title: newTodo,
-        isCompleted: false
+        isCompleted: false,
+        status: 'Todo'
       })
       // console.log(this.todolist)
     },
@@ -57,12 +58,33 @@ export default {
       })
       return countArr.length
     }
+    // status: function (item) {
+    //   switch (this.todolist.status) {
+    //     case 'All':
+    //       return this.todolist
+    //       break
+    //     case 'Todo':
+    //       let todoTasks = []
+    //       if (!item.isCompleted) {
+    //         todoTasks.push(item)
+    //       }
+    //       return todoTasks
+    //       break
+    //     case 'Done':
+    //       let doneTasks = []
+    //       if (item.isCompleted) {
+    //         doneTasks.push(item)
+    //       }
+    //       return doneTasks
+    //       break
+    //   }
+    // }
   },
   data: function () {
     return {
-      title: 'todoList',
+      title: 'TodoList',
       count: 0,
-      todolist: [{ id: 0, title: '你好', isCompleted: false }]
+      todolist: [{ id: 0, title: '你好', isCompleted: false, status: 'All' }]
     }
   }
 }

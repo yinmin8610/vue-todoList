@@ -2,11 +2,11 @@
   <div class="AddTodo">
       <form>
         <div class="form-row my-3">
-          <div class="col-md-10">
-            <input type="text" class="form-control" placeholder="Todo . . ." v-model="inputValue" />
+          <div class="col-10">
+            <input type="text" class="form-control form-control-lg" placeholder="Todo . . ." v-model="inputValue" @keyup.13="addTodo"/>
           </div>
-          <div class="col-md-2">
-            <button type="button" class="btn btn-primary" @click="addTodo">ADD</button>
+          <div class="col-2">
+            <button type="button" class="btn btn-primary btn-block btn-lg" @click="addTodo">ADD</button>
           </div>
         </div>
       </form>
@@ -21,7 +21,6 @@ export default {
       inputValue: ''
     }
   },
-  // props: ['inputValue'],
   methods: {
     addTodo: function () {
       this.$emit('addTodo', (this.inputValue))

@@ -4,10 +4,10 @@
       <li class="nav-item">
         <a
           class="nav-link"
-          href="#Todo"
-          :class="{'active':selected ==='Todo'}"
-          @click="selected = 'Todo'"
-        >Todo</a>
+          href="#All"
+          :class="{'active':selected ==='All'}"
+          @click="selected = 'All'"
+        >All</a>
       </li>
       <li class="nav-item">
         <a
@@ -28,14 +28,14 @@
     </ul>
 
     <div class="tab-content">
-      <div v-if="selected === 'Todo'">
-        1
+      <div v-if="selected === 'All'">
+        <!-- {{ status }} -->
       </div>
       <div v-else-if="selected === 'Doing'">
-        2
+        <!-- {{ doing }} -->
       </div>
       <div v-else-if="selected === 'Done'">
-        3
+        <!-- {{ done }} -->
       </div>
     </div>
   </div>
@@ -44,10 +44,10 @@
 <script>
 export default {
   name: 'Nav',
+  props: ['status'],
   data: function () {
     return {
-      selected: 'Todo'
-
+      selected: 'All'
     }
   }
 }
